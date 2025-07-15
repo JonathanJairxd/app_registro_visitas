@@ -1,16 +1,19 @@
-# app_registro_visitas
+# APP de registro de visitas
 
-A new Flutter project.
+## Informacion 
+- Para el registro de los visitantes se debe registrar para inciar sesión
+- Se pueden añadir informacion como:
+  * Nombre
+  * Motivo de la visita
+  * Fecha y Hora
+  * Imagen del visitante
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Capturas de pantalla de la app
 
-A few resources to get you started if this is your first Flutter project:
+<img width="377" height="485" alt="image" src="https://github.com/user-attachments/assets/a40f2aca-2559-42d0-bbc6-376275e9705c" />
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img width="395" height="852" alt="image" src="https://github.com/user-attachments/assets/167fe993-ab2d-49ca-a5e8-2df250c01863" />
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<img width="394" height="531" alt="image" src="https://github.com/user-attachments/assets/5833b42b-f209-446b-8525-69087cc041e1" />
