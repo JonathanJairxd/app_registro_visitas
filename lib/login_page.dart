@@ -20,28 +20,13 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+      // Aquí podrías navegar a la pantalla principal
+      // Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
       final message = e.message ?? 'Error al iniciar sesión';
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message)),
-      );
-    } finally {
-      setState(() => _isLoading = false);
-    }
-  }
-
-  Future<void> _register() async {
-    setState(() => _isLoading = true);
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      final message = e.message ?? 'Error al registrarse';
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(message)));
     } finally {
       setState(() => _isLoading = false);
     }
@@ -61,10 +46,13 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Correo electrónico'),
+              decoration: const InputDecoration(
+                labelText: 'Correo electrónico',
+              ),
               keyboardType: TextInputType.emailAddress,
             ),
             TextField(
@@ -76,11 +64,21 @@ class _LoginPageState extends State<LoginPage> {
             if (_isLoading)
               const CircularProgressIndicator()
             else
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Column(
                 children: [
-                  ElevatedButton(onPressed: _login, child: const Text('Login')),
-                  ElevatedButton(onPressed: _register, child: const Text('Registrarse')),
+                  ElevatedButton(
+                    onPressed: _login,
+                    child: const Text('Iniciar Sesión'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/register',
+                      ); // Navega a registro
+                    },
+                    child: const Text('¿No tienes cuenta? Regístrate aquí'),
+                  ),
                 ],
               ),
           ],

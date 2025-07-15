@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'login_page.dart';
+import 'register_page.dart';
 import 'home_page.dart';
 
 void main() async {
@@ -25,12 +26,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Registro de Visitantes',
       debugShowCheckedModeBanner: false,
-      home: AuthWrapper(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const AuthWrapper(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
 
 class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
